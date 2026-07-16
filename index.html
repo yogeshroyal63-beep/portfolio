@@ -54,9 +54,9 @@ nav ul a:hover{color:var(--accent)}
 
 /* ── HERO ── */
 #hero{
-  min-height:100vh;
+  min-height:auto;
   display:grid;
-  grid-template-rows:1fr auto;
+  grid-template-rows:auto auto;
   padding:0;
   position:relative;
   overflow:hidden;
@@ -76,11 +76,11 @@ nav ul a:hover{color:var(--accent)}
   letter-spacing:-0.02em;
 }
 .hero-main{
-  padding:8rem 2.5rem 2rem;
+  padding:7.5rem 2.5rem 2.5rem;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:3rem;
-  align-items:end;
+  align-items:center;
   position:relative;
   z-index:2;
 }
@@ -624,16 +624,16 @@ footer{
     </div>
     <div class="hero-right">
       <p class="hero-desc">
-        First-year CS undergrad who independently designed, built, tested, and shipped <strong>7 apps</strong> — spanning AI agents, blockchain, cybersecurity, and medical ML. I don't wait to learn. I ship.
+        Second-year CS undergrad who independently designed, built, and tested <strong>8 apps</strong> — spanning AI agents, blockchain, cybersecurity, and medical ML. Some are live, some still in progress. I don't wait to learn. I ship.
       </p>
       <div class="hero-stats-row">
         <div class="hero-stat">
-          <div class="stat-n">7<em>+</em></div>
-          <div class="stat-l">Apps Shipped</div>
+          <div class="stat-n">8<em>+</em></div>
+          <div class="stat-l">Apps Built</div>
         </div>
         <div class="hero-stat">
-          <div class="stat-n">44</div>
-          <div class="stat-l">LeetCode</div>
+          <div class="stat-n">6</div>
+          <div class="stat-l">Domains</div>
         </div>
         <div class="hero-stat">
           <div class="stat-n">1<em>M</em></div>
@@ -753,27 +753,13 @@ footer{
       </div>
     </div>
     <div class="skill-row sk-lc rev">
-      <div class="sk-cat">DSA</div>
-      <div class="sk-inner lc-inner">
-        <div class="lc-row">
-          <span class="lc-lbl" style="color:#3a9e5a">Easy</span>
-          <div class="lc-track"><div class="lc-fill" style="background:#3a9e5a" data-w="25"></div></div>
-          <span class="lc-n">11</span>
-        </div>
-        <div class="lc-row">
-          <span class="lc-lbl" style="color:#d48800">Med</span>
-          <div class="lc-track"><div class="lc-fill" style="background:#d48800" data-w="66"></div></div>
-          <span class="lc-n">29</span>
-        </div>
-        <div class="lc-row">
-          <span class="lc-lbl" style="color:#cc2e2e">Hard</span>
-          <div class="lc-track"><div class="lc-fill" style="background:#cc2e2e" data-w="9"></div></div>
-          <span class="lc-n">4</span>
-        </div>
-        <div style="font-family:var(--mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--text3);margin-top:4px">
-          44 total &nbsp;·&nbsp; max streak: 25 days &nbsp;·&nbsp;
-          <a href="https://leetcode.com/u/yogeshroyal01" target="_blank" style="color:var(--accent2);text-decoration:none">yogeshroyal01 ↗</a>
-        </div>
+      <div class="sk-cat">Languages</div>
+      <div class="sk-tags" style="padding:1.5rem">
+        <span class="sk-tag">Java</span>
+        <span class="sk-tag">Python</span>
+        <span class="sk-tag">JavaScript</span>
+        <span class="sk-tag">Solidity</span>
+        <span class="sk-tag">DSA (Java &amp; Python)</span>
       </div>
     </div>
   </div>
@@ -786,12 +772,105 @@ footer{
       <div class="section-num">02 — Portfolio</div>
       <h2>WORK<em>.</em></h2>
     </div>
-    <div class="section-sub">7 apps. All independently designed, built, and shipped.</div>
+    <div class="section-sub">8 apps. All independently designed and built — some deployed, some in progress.</div>
   </div>
   <div class="projects-body">
 
     <div class="proj rev" onclick="toggleProj(this)">
       <div class="proj-num">01</div>
+      <div class="proj-mid">
+        <div class="proj-name">GHOSTID</div>
+        <div class="proj-stack-line">PyTorch · LSTM · ONNX · FastAPI · React</div>
+        <div class="proj-desc-inner">Behavioral biometrics SDK for continuous, keystroke-based session verification, powered by a custom-trained 2-layer LSTM on the CMU Keystroke Dynamics dataset (51 users, 20,400 samples).</div>
+        <div class="proj-highlights">
+          <div class="proj-hl">Custom 2-layer LSTM trained from scratch on 20,400 keystroke samples across 51 users</div>
+          <div class="proj-hl">Ratio-preserved timing features keep the model accurate across natural typing-speed variation</div>
+          <div class="proj-hl">Exported to ONNX for fast inference; full system with FastAPI scoring backend, a vanilla JS SDK, and a React dashboard for live trust scores</div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tech-tag">Deep Learning</span>
+          <span class="proj-tech-tag">Biometrics</span>
+          <span class="proj-tech-tag">ONNX</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-arrow">+</div>
+        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/ghostid" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj rev rev-d1" onclick="toggleProj(this)">
+      <div class="proj-num">02</div>
+      <div class="proj-mid">
+        <div class="proj-name">MEDASSIST</div>
+        <div class="proj-stack-line">React · Node.js · FastAPI · BioBERT · PyTorch · Docker · WebRTC</div>
+        <div class="proj-desc-inner">Medical AI with a custom BioBERT fine-tuned on 1 million synthetically generated samples across 60 conditions. Docker Compose architecture across four services with a hybrid triage engine and WebRTC video consultations.</div>
+        <div class="proj-highlights">
+          <div class="proj-hl">Fine-tuned BioBERT on 1M synthetic samples / 60 medical conditions — full ML pipeline from data gen to inference</div>
+          <div class="proj-hl">Four-service Docker Compose architecture (frontend, backend, ML service, Nginx reverse proxy) with clean separation of concerns</div>
+          <div class="proj-hl">40+ emergency rules, intent detection, severity scoring, role-based access: patient / doctor / admin</div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tech-tag">Medical AI</span>
+          <span class="proj-tech-tag">Custom ML</span>
+          <span class="proj-tech-tag">Docker</span>
+          <span class="proj-tech-tag">WebRTC</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-arrow">+</div>
+        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/medassit" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj rev rev-d2" onclick="toggleProj(this)">
+      <div class="proj-num">03</div>
+      <div class="proj-mid">
+        <div class="proj-name">VAULTMIND</div>
+        <div class="proj-stack-line">Node.js · Auth0 Token Vault · OAuth · WebSocket · Ed25519 · PyNaCl</div>
+        <div class="proj-desc-inner">AI agent security and token governance platform. Zero-trust architecture where agents get scoped, intent-bound tokens per action. Real-time anomaly detection with WebSocket observability dashboard.</div>
+        <div class="proj-highlights">
+          <div class="proj-hl">Zero-trust: scoped intent-bound tokens per action, issued via Auth0 Token Vault — raw credentials never exposed to agent layer</div>
+          <div class="proj-hl">Natural language policy compiler → permission scopes at runtime via intersection logic</div>
+          <div class="proj-hl">Anomaly detection auto-suspends misbehaving agents + Auth0 OAuth with cryptographic delegation chains</div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tech-tag">AI Security</span>
+          <span class="proj-tech-tag">Zero-Trust</span>
+          <span class="proj-tech-tag">Agent Governance</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-arrow">+</div>
+        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/vaultmind" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj rev rev-d3" onclick="toggleProj(this)">
+      <div class="proj-num">04</div>
+      <div class="proj-mid">
+        <div class="proj-name">SENTINEL</div>
+        <div class="proj-stack-line">OpenClaw · Ed25519 · Unix Sockets · JSON-RPC · Pytest</div>
+        <div class="proj-desc-inner">Zero-trust intent enforcement for autonomous financial AI agents. Every action is validated against a signed, declared intent and logged to an immutable audit ledger via a real subprocess kernel over a Unix domain socket. Pure deterministic kernel — no LLM.</div>
+        <div class="proj-highlights">
+          <div class="proj-hl">Ed25519 cryptographic signing across isolated layers — prevents prompt injection and scope escalation</div>
+          <div class="proj-hl">Real subprocess kernel communicating over a Unix domain socket via JSON-RPC</div>
+          <div class="proj-hl">Cryptographically signed, immutable audit ledger for every validated action</div>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tech-tag">AI Security</span>
+          <span class="proj-tech-tag">Cryptography</span>
+          <span class="proj-tech-tag">FinTech</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-arrow">+</div>
+        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/sentinal" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="proj rev rev-d4" onclick="toggleProj(this)">
+      <div class="proj-num">05</div>
       <div class="proj-mid">
         <div class="proj-name">SMART ALLOWANCE</div>
         <div class="proj-stack-line">React · Node.js · Solidity · Groq LLaMA · MongoDB · Vercel</div>
@@ -814,8 +893,8 @@ footer{
       </div>
     </div>
 
-    <div class="proj rev rev-d1" onclick="toggleProj(this)">
-      <div class="proj-num">02</div>
+    <div class="proj rev rev-d5" onclick="toggleProj(this)">
+      <div class="proj-num">06</div>
       <div class="proj-mid">
         <div class="proj-name">TRUSTCHECK AI</div>
         <div class="proj-stack-line">React · FastAPI · Ollama · OpenCV · Tesseract OCR</div>
@@ -837,78 +916,8 @@ footer{
       </div>
     </div>
 
-    <div class="proj rev rev-d2" onclick="toggleProj(this)">
-      <div class="proj-num">03</div>
-      <div class="proj-mid">
-        <div class="proj-name">MEDASSIST</div>
-        <div class="proj-stack-line">React · Node.js · FastAPI · BioBERT · PyTorch · Docker · WebRTC</div>
-        <div class="proj-desc-inner">Medical AI with a custom BioBERT fine-tuned on 1 million synthetically generated samples across 60 conditions. 3-service Docker Compose architecture with hybrid triage engine and WebRTC video consultations.</div>
-        <div class="proj-highlights">
-          <div class="proj-hl">Fine-tuned BioBERT on 1M synthetic samples / 60 medical conditions — full ML pipeline from data gen to inference</div>
-          <div class="proj-hl">3-service Docker Compose + Nginx reverse proxy with clean separation of concerns</div>
-          <div class="proj-hl">40+ emergency rules, intent detection, severity scoring, role-based access: patient / doctor / admin</div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tech-tag">Medical AI</span>
-          <span class="proj-tech-tag">Custom ML</span>
-          <span class="proj-tech-tag">Docker</span>
-          <span class="proj-tech-tag">WebRTC</span>
-        </div>
-      </div>
-      <div class="proj-right">
-        <div class="proj-arrow">+</div>
-        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/medassit" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj rev rev-d3" onclick="toggleProj(this)">
-      <div class="proj-num">04</div>
-      <div class="proj-mid">
-        <div class="proj-name">VAULTMIND</div>
-        <div class="proj-stack-line">React · FastAPI · SQLite · Auth0 · WebSocket · Ed25519 · PyNaCl</div>
-        <div class="proj-desc-inner">AI agent security and token governance platform. Zero-trust architecture where agents get scoped, intent-bound JWT tokens per action. Real-time anomaly detection with WebSocket observability dashboard.</div>
-        <div class="proj-highlights">
-          <div class="proj-hl">Zero-trust: scoped intent-bound JWT per action — raw credentials never exposed to agent layer</div>
-          <div class="proj-hl">Natural language policy compiler → permission scopes at runtime via intersection logic</div>
-          <div class="proj-hl">Anomaly detection auto-suspends misbehaving agents + Auth0 M2M OAuth with step-up MFA</div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tech-tag">AI Security</span>
-          <span class="proj-tech-tag">Zero-Trust</span>
-          <span class="proj-tech-tag">Agent Governance</span>
-        </div>
-      </div>
-      <div class="proj-right">
-        <div class="proj-arrow">+</div>
-        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/vaultmind" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj rev rev-d4" onclick="toggleProj(this)">
-      <div class="proj-num">05</div>
-      <div class="proj-mid">
-        <div class="proj-name">SENTINEL</div>
-        <div class="proj-stack-line">Python · FastAPI · Ed25519 · PyNaCl · Alpaca API · Pytest</div>
-        <div class="proj-desc-inner">Zero-trust intent enforcement for autonomous financial AI agents. 4 strictly isolated layers with Ed25519 cryptographic signing. Pure deterministic kernel — no LLM. No trade executes without a valid signed token.</div>
-        <div class="proj-highlights">
-          <div class="proj-hl">4 isolated layers with Ed25519 signing — prevents prompt injection and scope escalation</div>
-          <div class="proj-hl">Unit tests covering all 9 policy rules: prompt injection, exfiltration, unbounded delegation</div>
-          <div class="proj-hl">Cryptographically signed SQLite audit ledger + Alpaca Paper Trading API</div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tech-tag">AI Security</span>
-          <span class="proj-tech-tag">Cryptography</span>
-          <span class="proj-tech-tag">FinTech</span>
-        </div>
-      </div>
-      <div class="proj-right">
-        <div class="proj-arrow">+</div>
-        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/sentinal" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj rev rev-d5" onclick="toggleProj(this)">
-      <div class="proj-num">06</div>
+    <div class="proj rev rev-d6" onclick="toggleProj(this)">
+      <div class="proj-num">07</div>
       <div class="proj-mid">
         <div class="proj-name">SOLO TASK SYSTEM</div>
         <div class="proj-stack-line">React 18 · Framer Motion · Node.js · MongoDB · Groq</div>
@@ -930,8 +939,8 @@ footer{
       </div>
     </div>
 
-    <div class="proj rev rev-d6" onclick="toggleProj(this)">
-      <div class="proj-num">07</div>
+    <div class="proj rev rev-d1" onclick="toggleProj(this)">
+      <div class="proj-num">08</div>
       <div class="proj-mid">
         <div class="proj-name">TRAVELFLOW</div>
         <div class="proj-stack-line">Python · Streamlit · Groq LLaMA 3.3-70b · Folium · OpenWeatherMap</div>
@@ -1010,11 +1019,11 @@ footer{
     <div class="about-left">
       <div class="about-giant" aria-hidden="true">ABOUT<br>ME</div>
       <p class="about-desc">
-        I'm a <strong>first-year CS student</strong> who doesn't believe in waiting until year three to start building. Every project here was self-initiated — I defined the problem, designed the architecture, wrote every line, and shipped it.
+        Hey, I'm Yogesh! A second-year CS student who'd rather build something than just read about it. Most of what's on this page started as a "wait, can I actually make this?" moment — so I sat down and figured it out.
         <br><br>
-        My obsession is <strong>AI security</strong> — how do you give autonomous agents real power without losing control? VaultMind and Sentinel are my answers so far.
+        I like working across the whole stack — frontend, backend, ML, deployment — because seeing a project go from idea to something real never really gets old for me.
         <br><br>
-        Fluent in <strong>English</strong> and <strong>Telugu</strong>. Hooked on open source, Web3, and frameworks that don't exist yet.
+        Fluent in <strong>English</strong> and <strong>Telugu</strong>. Always happy to talk shop about whatever I'm building next — feel free to reach out!
       </p>
     </div>
     <div class="about-right">
@@ -1022,7 +1031,7 @@ footer{
         <div class="about-label">Education</div>
         <div class="edu-degree">B.Tech Computer Science</div>
         <div class="edu-school">Kalasalingam Academy of Research and Education</div>
-        <div class="edu-period">Software Product Engineering · 2025 – 2029</div>
+        <div class="edu-period">Software Product Engineering · 2025 – 2029 · CGPA 8.3/10</div>
         <div class="edu-tags">
           <span class="edu-tag">Frontend Dev</span>
           <span class="edu-tag">DSA</span>
@@ -1099,7 +1108,7 @@ footer{
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-l">© 2026 Yogesh Rayal Singam Shetty &nbsp;·&nbsp; Ananthapur, Andhra Pradesh</div>
+  <div class="footer-l">© 2026 Yogesh Rayal Singam Shetty &nbsp;·&nbsp; Anantapur, Andhra Pradesh</div>
   <div class="footer-r">
     <a href="https://github.com/yogeshroyal63-beep" target="_blank">@yogeshroyal63-beep</a>
   </div>
