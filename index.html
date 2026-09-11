@@ -181,7 +181,7 @@ h1 .line2{
 }
 .marquee-track{
   display:flex;gap:0;white-space:nowrap;
-  animation:marquee 24s linear infinite;
+  animation:marquee 26s linear infinite;
 }
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .marquee-item{
@@ -333,6 +333,41 @@ h2 em{font-style:normal;-webkit-text-stroke:2px var(--ink);color:transparent}
 }
 .proj:hover .proj-hl{color:rgba(245,242,235,0.65)}
 .proj-hl::before{content:'→';color:var(--accent);flex-shrink:0}
+
+/* evolution timeline (for merged multi-version project) */
+.proj-evo{
+  display:none;
+  flex-direction:column;gap:10px;
+  margin-top:0.8rem;padding-top:0.8rem;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+.proj.open .proj-evo{display:flex}
+.proj:hover .proj-evo{border-top-color:rgba(255,255,255,0.1)}
+.evo-step{
+  display:grid;grid-template-columns:88px 1fr auto;
+  gap:10px;align-items:baseline;
+}
+.evo-tag{
+  font-family:var(--mono);font-size:0.58rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--accent);
+}
+.evo-body{
+  font-family:var(--mono);font-size:0.62rem;
+  line-height:1.55;color:var(--text2);
+  transition:color 0.25s;
+}
+.proj:hover .evo-body{color:rgba(245,242,235,0.65)}
+.evo-link{
+  font-family:var(--mono);font-size:0.58rem;
+  letter-spacing:0.06em;color:var(--text3);
+  text-decoration:none;white-space:nowrap;
+  transition:color 0.25s;
+}
+.evo-link:hover{color:var(--accent)}
+.proj:hover .evo-link{color:rgba(245,242,235,0.4)}
+.proj:hover .evo-link:hover{color:var(--accent)}
+
 .proj-tags{
   display:flex;flex-wrap:wrap;gap:5px;
   margin-top:0.8rem;
@@ -561,6 +596,7 @@ footer{
 .rev-d1{transition-delay:0.1s}.rev-d2{transition-delay:0.18s}
 .rev-d3{transition-delay:0.26s}.rev-d4{transition-delay:0.34s}
 .rev-d5{transition-delay:0.42s}.rev-d6{transition-delay:0.5s}
+.rev-d7{transition-delay:0.58s}
 
 /* ── MOBILE ── */
 @media(max-width:768px){
@@ -574,6 +610,7 @@ footer{
   .skills-body{grid-template-columns:1fr}
   .skill-row{border-right:none}
   .proj{grid-template-columns:48px 1fr 48px}
+  .evo-step{grid-template-columns:1fr;gap:4px}
   .certs-grid{grid-template-columns:1fr 1fr}
   .about-body{grid-template-columns:1fr}
   .about-left{border-right:none}
@@ -624,11 +661,11 @@ footer{
     </div>
     <div class="hero-right">
       <p class="hero-desc">
-        Second-year CS undergrad who independently designed, built, and tested <strong>9 apps</strong> — spanning AI agents, blockchain, cybersecurity, and medical ML. Some are live, some still in progress. I don't wait to learn. I ship.
+        Second-year CS undergrad who independently designed, built, and tested <strong>8 apps</strong> — spanning AI agents, blockchain, cybersecurity, and medical ML. Some are live, some still in progress. I don't wait to learn. I ship.
       </p>
       <div class="hero-stats-row">
         <div class="hero-stat">
-          <div class="stat-n">9<em>+</em></div>
+          <div class="stat-n">8<em>+</em></div>
           <div class="stat-l">Apps Built</div>
         </div>
         <div class="hero-stat">
@@ -666,6 +703,8 @@ footer{
     <span class="marquee-item">Docker</span>
     <span class="marquee-item">Web3</span>
     <span class="marquee-item">LLM Agents</span>
+    <span class="marquee-item">AWS Strands</span>
+    <span class="marquee-item">Bedrock</span>
     <span class="marquee-item">Ed25519</span>
     <span class="marquee-item">Zero-Trust</span>
     <span class="marquee-item">MongoDB</span>
@@ -680,6 +719,8 @@ footer{
     <span class="marquee-item">Docker</span>
     <span class="marquee-item">Web3</span>
     <span class="marquee-item">LLM Agents</span>
+    <span class="marquee-item">AWS Strands</span>
+    <span class="marquee-item">Bedrock</span>
     <span class="marquee-item">Ed25519</span>
     <span class="marquee-item">Zero-Trust</span>
     <span class="marquee-item">MongoDB</span>
@@ -705,7 +746,8 @@ footer{
         <span class="sk-tag">React 18</span><span class="sk-tag">Vite</span>
         <span class="sk-tag">Tailwind CSS</span><span class="sk-tag">Framer Motion</span>
         <span class="sk-tag">Radix UI</span><span class="sk-tag">Recharts</span>
-        <span class="sk-tag">Streamlit</span><span class="sk-tag">Responsive Design</span>
+        <span class="sk-tag">ReactFlow</span><span class="sk-tag">Streamlit</span>
+        <span class="sk-tag">Responsive Design</span>
       </div>
     </div>
     <div class="skill-row rev rev-d2">
@@ -717,6 +759,8 @@ footer{
         <span class="sk-tag">node-cron</span><span class="sk-tag">Axios</span>
         <span class="sk-tag">Next.js</span><span class="sk-tag">Auth.js</span>
         <span class="sk-tag">Socket.io</span><span class="sk-tag">Payment API Integration</span>
+        <span class="sk-tag">Prisma</span><span class="sk-tag">shadcn/ui</span>
+        <span class="sk-tag">Zod</span><span class="sk-tag">bcrypt</span>
       </div>
     </div>
     <div class="skill-row rev rev-d2">
@@ -724,7 +768,8 @@ footer{
       <div class="sk-tags">
         <span class="sk-tag">PostgreSQL</span><span class="sk-tag">Supabase</span>
         <span class="sk-tag">MongoDB</span><span class="sk-tag">SQLite</span>
-        <span class="sk-tag">GCP</span>
+        <span class="sk-tag">DynamoDB</span><span class="sk-tag">Firestore</span>
+        <span class="sk-tag">GCP</span><span class="sk-tag">AWS</span>
       </div>
     </div>
     <div class="skill-row rev rev-d3">
@@ -734,7 +779,24 @@ footer{
         <span class="sk-tag">Ollama</span><span class="sk-tag">BioBERT</span>
         <span class="sk-tag">PyTorch</span><span class="sk-tag">HuggingFace</span>
         <span class="sk-tag">LLM Agents</span><span class="sk-tag">Prompt Engineering</span>
-        <span class="sk-tag">scikit-learn</span><span class="sk-tag">ElevenLabs TTS</span>
+        <span class="sk-tag">scikit-learn</span><span class="sk-tag">scipy</span>
+        <span class="sk-tag">ElevenLabs TTS</span>
+      </div>
+    </div>
+    <div class="skill-row rev rev-d3">
+      <div class="sk-cat">AI Agents &amp; Cloud AI</div>
+      <div class="sk-tags">
+        <span class="sk-tag">AWS Strands Agents SDK</span><span class="sk-tag">Amazon Bedrock</span>
+        <span class="sk-tag">Gemini API</span><span class="sk-tag">Agentic Orchestration</span>
+        <span class="sk-tag">Model Context Protocol (MCP)</span><span class="sk-tag">DataHub MCP</span>
+      </div>
+    </div>
+    <div class="skill-row rev rev-d4">
+      <div class="sk-cat">AI-Assisted Dev</div>
+      <div class="sk-tags">
+        <span class="sk-tag">Claude</span><span class="sk-tag">Cursor</span>
+        <span class="sk-tag">ChatGPT</span><span class="sk-tag">Gemini</span>
+        <span class="sk-tag">Lovable</span>
       </div>
     </div>
     <div class="skill-row rev rev-d4">
@@ -759,7 +821,9 @@ footer{
       <div class="sk-tags">
         <span class="sk-tag">Docker</span><span class="sk-tag">Docker Compose</span>
         <span class="sk-tag">Nginx</span><span class="sk-tag">Vercel</span>
-        <span class="sk-tag">Railway</span><span class="sk-tag">Git / GitHub</span>
+        <span class="sk-tag">Netlify</span><span class="sk-tag">Railway</span>
+        <span class="sk-tag">AWS App Runner</span><span class="sk-tag">Google Cloud Run</span>
+        <span class="sk-tag">Git / GitHub</span><span class="sk-tag">GitHub Actions (CI)</span>
         <span class="sk-tag">Postman</span><span class="sk-tag">Neon</span>
       </div>
     </div>
@@ -784,7 +848,7 @@ footer{
       <div class="section-num">02 — Portfolio</div>
       <h2>WORK<em>.</em></h2>
     </div>
-    <div class="section-sub">9 apps. All independently designed and built — some deployed, some in progress.</div>
+    <div class="section-sub">8 apps. All independently designed and built — some deployed, some in progress.</div>
   </div>
   <div class="projects-body">
 
@@ -931,70 +995,58 @@ footer{
     <div class="proj rev rev-d6" onclick="toggleProj(this)">
       <div class="proj-num">07</div>
       <div class="proj-mid">
-        <div class="proj-name">SOLO TASK SYSTEM</div>
-        <div class="proj-stack-line">React 18 · Framer Motion · Node.js · MongoDB · Groq</div>
-        <div class="proj-desc-inner">Gamified productivity app with XP levelling, rank progression, 5 hunter classes with stat modifiers, and 10 rarity-tiered achievements. Cron-based punishment engine + AI task difficulty scoring.</div>
-        <div class="proj-highlights">
-          <div class="proj-hl">XP levelling, rank progression, 5 hunter classes, 10 rarity-tiered achievements</div>
-          <div class="proj-hl">node-cron punishment engine — checks missed deadlines hourly, deducts XP, breaks streaks</div>
-          <div class="proj-hl">Groq LLM for AI-driven difficulty suggestions and in-character performance assessments</div>
+        <div class="proj-name">DRIFT SENTINEL</div>
+        <div class="proj-stack-line">FastAPI · React · AWS Strands · Amazon Bedrock · DataHub MCP · scipy · Groq LLaMA</div>
+        <div class="proj-desc-inner">Autonomous root-cause diagnosis for silent ML model drift — evolved across three hackathons from a detection tool into a fully autonomous agent that decides and executes its own remediation.</div>
+        <div class="proj-evo">
+          <div class="evo-step">
+            <div class="evo-tag">v1 · Causal Drift Sentinel</div>
+            <div class="evo-body">DataHub Agent Hackathon. Statistical drift detection (KS-test, PSI, embedding centroid drift) + causal DAG traversal to isolate the true upstream root cause, explained via Groq LLaMA and written back as a DataHub incident + GitHub issue.</div>
+            <a class="evo-link" href="https://github.com/yogeshroyal63-beep/causal-drift-sentinel" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+          </div>
+          <div class="evo-step">
+            <div class="evo-tag">v2 · DriftRadar</div>
+            <div class="evo-body">Same core, taken further: adds a Gemini-powered Planner that scores confidence/risk, an Executor that autonomously acts (retrain, rollback, quarantine) when safe, a Verifier that re-checks drift post-action, and Memory that learns from past incidents.</div>
+            <a class="evo-link" href="https://github.com/yogeshroyal63-beep/DriftRadar" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+          </div>
+          <div class="evo-step">
+            <div class="evo-tag">v3 · Nexus</div>
+            <div class="evo-body">AWS Agents for Humans Hackathon. Rebuilt the closed loop on AWS Strands Agents SDK + Amazon Bedrock (Nova Pro) for planning, DynamoDB for incident memory, and SNS + EventBridge for scheduled, developer-free autonomous runs.</div>
+            <a class="evo-link" href="https://github.com/yogeshroyal63-beep/Nexus" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+          </div>
         </div>
         <div class="proj-tags">
-          <span class="proj-tech-tag">Gamification</span>
-          <span class="proj-tech-tag">Full-Stack</span>
-          <span class="proj-tech-tag">AI</span>
+          <span class="proj-tech-tag">ML Ops</span>
+          <span class="proj-tech-tag">Autonomous Agents</span>
+          <span class="proj-tech-tag">3 Hackathons</span>
         </div>
       </div>
       <div class="proj-right">
         <div class="proj-arrow">+</div>
-        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/solo-task-system" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/Nexus" target="_blank" onclick="event.stopPropagation()">Latest ↗</a>
       </div>
     </div>
 
     <div class="proj rev rev-d1" onclick="toggleProj(this)">
       <div class="proj-num">08</div>
       <div class="proj-mid">
-        <div class="proj-name">TRAVELFLOW</div>
-        <div class="proj-stack-line">Python · Streamlit · Groq LLaMA 3.3-70b · Folium · OpenWeatherMap</div>
-        <div class="proj-desc-inner">AI travel intelligence app aggregating real-time data from OpenWeatherMap, OpenTripMap, and Nominatim. LLaMA-powered personalised itinerary generation with interactive dark-theme Folium maps.</div>
+        <div class="proj-name">STATELENS</div>
+        <div class="proj-stack-line">React · Vite · Firebase · Recharts · Client-side JS</div>
+        <div class="proj-desc-inner">Interactive explainer breaking down linear attention through a live, in-browser experiment — built for DataForge 2026, Pathway Track. Shows why fixed-size recurrent state causes older facts to be overwritten as more are packed in, then bridges that mechanism to Pathway's BDH-CQ architecture.</div>
         <div class="proj-highlights">
-          <div class="proj-hl">Clean service abstraction layer for each API — OpenWeatherMap, OpenTripMap, Nominatim</div>
-          <div class="proj-hl">LLaMA 3.3-70b for personalised travel reports + interactive Folium maps with pinned attractions</div>
-          <div class="proj-hl">Premium Streamlit UI with custom CSS, glassmorphism design, and demo mode</div>
+          <div class="proj-hl">Live client-side toy models comparing full (softmax) attention vs. linear attention on associative recall, with a slider to grow the fact count and watch recall degrade in real time</div>
+          <div class="proj-hl">Deterministic seeded PRNG for reproducible experiments; every claim traceable to a concrete, re-runnable computation, not a canned demo</div>
+          <div class="proj-hl">Mathematical bridge from the linear-attention recurrence to BDH-CQ's contextual memory, sourced directly from Pathway's own published papers with a full citation list</div>
         </div>
         <div class="proj-tags">
-          <span class="proj-tech-tag">AI</span>
-          <span class="proj-tech-tag">Multi-API</span>
-          <span class="proj-tech-tag">Data Viz</span>
-        </div>
-      </div>
-      <div class="proj-right">
-        <div class="proj-arrow">+</div>
-        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/travelflow" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="proj rev rev-d2" onclick="toggleProj(this)">
-      <div class="proj-num">09</div>
-      <div class="proj-mid">
-        <div class="proj-name">CAUSAL DRIFT SENTINEL</div>
-        <div class="proj-stack-line">FastAPI · React · DataHub MCP · scipy · Groq LLaMA · GitHub API</div>
-        <div class="proj-desc-inner">Autonomous root-cause diagnosis for silent ML model drift, built for The DataHub Agent Hackathon (Production ML Agents Track). Detects drift statistically, traces it back through DataHub's lineage graph to isolate the real upstream cause, then explains and writes back the finding.</div>
-        <div class="proj-highlights">
-          <div class="proj-hl">Statistical drift detection via KS-test, PSI, and embedding centroid drift — not LLM-eyeballed</div>
-          <div class="proj-hl">Walks DataHub's ML lineage DAG with intervention-style checks to isolate genuine cause from merely-correlated nodes</div>
-          <div class="proj-hl">Groq-powered LLM reasons over the statistical evidence to explain findings in plain language, then writes back a structured DataHub incident and opens a GitHub issue</div>
-          <div class="proj-hl">FastAPI backend + React (Vite) console with lineage graph view, drift timeline, root-cause report, and a "replay a failure" demo mode</div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tech-tag">ML Ops</span>
-          <span class="proj-tech-tag">AI Agents</span>
+          <span class="proj-tech-tag">Interactive Education</span>
+          <span class="proj-tech-tag">ML Explainer</span>
           <span class="proj-tech-tag">Hackathon</span>
         </div>
       </div>
       <div class="proj-right">
         <div class="proj-arrow">+</div>
-        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/causal-drift-sentinel" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+        <a class="proj-expand" href="https://github.com/yogeshroyal63-beep/Statelens" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
       </div>
     </div>
 
